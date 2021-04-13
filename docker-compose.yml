@@ -1,0 +1,11 @@
+version: '3'
+services:
+  web:
+    build: .
+    image: rails-cli
+    container_name: rails-cli
+    volumes:
+      - rails_data:/app
+
+volumes:
+  rails_data:
