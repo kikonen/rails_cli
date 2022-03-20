@@ -1,4 +1,5 @@
 version: '3'
+
 services:
   web:
     build: .
@@ -6,6 +7,16 @@ services:
     container_name: rails-cli
     volumes:
       - rails_data:/app
+      - host_assets:/app/public/assets
+      - host_bundle:/bundle
+      - host_node_modules:/node_modules
+      - host_log:/app/log
+      - host_tmp:/app/tmp
 
 volumes:
   rails_data:
+  host_assets:
+  host_bundle:
+  host_node_modules:
+  host_log:
+  host_tmp:
