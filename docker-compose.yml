@@ -12,6 +12,7 @@ services:
       - host_node_modules:/node_modules
       - host_log:/app/log
       - host_tmp:/app/tmp
+    command: ["sleep", "infinity"]
 
 volumes:
   rails_data:

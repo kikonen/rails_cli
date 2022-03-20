@@ -16,9 +16,9 @@ mkdir -p $OUTPUT_DIR
 docker-compose build
 docker-compose up -d
 
-docker-compose exec web rm -fr $TEST_APP
+docker-compose exec web rm -fr $APP_NAME
 # No need to install gems
-docker-compose exec web rails new --skip-bundle $TEST_APP
+docker-compose exec web rails new --skip-bundle $APP_NAME
 
 # No need to install gems
 # - or if wanting to wait
