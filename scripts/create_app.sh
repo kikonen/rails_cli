@@ -5,9 +5,9 @@ ROOT_DIR=$(dirname $SCRIPT_DIR)
 
 OUTPUT_DIR=$ROOT_DIR/output
 
-APP_NAME=$1
-if [[ $APP_NAME == "" ]]; then
-    echo "USAGE: $0 [APP_NAME]"
+APP_NAME="${@: -1}"
+if [[ $APP_NAME == "$0" ]]; then
+    echo "USAGE: $0 [RAILS_NEW_OPT] [APP_NAME]"
     exit
 fi
 
@@ -18,7 +18,8 @@ docker-compose up -d
 
 docker-compose exec web rm -fr $APP_NAME
 # No need to install gems
-docker-compose exec web rails new --skip-bundle $APP_NAME
+docker-compose exec web rails new --skip-bundle "$@"
+#docker-compose exec web "$@" --skip-bundle
 
 # No need to install gems
 # - or if wanting to wait
